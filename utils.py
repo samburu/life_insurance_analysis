@@ -34,12 +34,12 @@ def kaplan_curve(df, duration, censorship, cohort=None):
             output[f"kmf_{val}"].fit(temp[duration], temp[censorship], label=val)
             output[f"kmf_{val}"].plot(ax=ax)
 
+    fig.savefig("kaplan.png", bbox_inches='tight', dpi=500)
     return output
 
 
 def plot_confusion_matrix(y_true, y_pred, lbl_class,
-                          normalize=True,
-                          savefig=None,
+                          normalize=False,
                           title='Confusion matrix for Fundraising prediction',
                           cmap=plt.cm.YlOrRd):
     """
@@ -72,7 +72,5 @@ def plot_confusion_matrix(y_true, y_pred, lbl_class,
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
 
-    if savefig is None:
-        plt.show()
-    else:
-        plt.savefig(savefig)
+    plt.show()
+    plt.savefig("Confusion_matrix.png", bbox_inches='tight', dpi=500)
