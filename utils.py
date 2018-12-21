@@ -71,6 +71,5 @@ def plot_confusion_matrix(y_true, y_pred, lbl_class,
     plt.gcf().subplots_adjust(bottom=0.35)
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
-
-    plt.show()
     plt.savefig("Confusion_matrix.png", bbox_inches='tight', dpi=500)
+    plt.show()

@@ -6,9 +6,41 @@ From the figure below, there is small difference between men and women death age
 ![picture alt](boxplot.png "Visualization of Age aganist various group")
 
 ## Kaplan-Meier curves
+For all the data that we have, we have observed birth and death of all the subjects, thus we will not have any censored record.
+At 95% confidence interval there is significant difference between `Male` and `Female` death age. As expected the death age is a little lower for `Male` comapred to `Female`
+![picture alt](kaplan.png "kaplan")
 
+The `hazard ratio is 1.651`. Therefore the risk of death for `Male` is 1.651 times higher compared to `Female`.
 
 ## Fundraising Classification
+This section develop a model to predict if fundraising will be required.
+
+### Feature Engineering
+#### Feature Scaling
+Based on the distribution of the variables the following scaling method were used:
+` `StandardScaler` the scaler was used to scale;`Age`
+* `MinMaxScaler`, this scaler was used to scale; `No_of_Children`, `Significant_Children`, and `Significant_Relatives`
+* `RobustScaler`, this caler was used used to scale; `Size`, and `Word_Count`
+#### Encoding Categorical Data
+The following varibles were converted to number:
+* 'Fundraising`
+* `Color`
+* `Gender'
+
+### Train the Model
+The data was divided is divided into training and testing set. The testing set is consist of 25 percent of the datasets.
+
+#### Hyper Parameter Tunning
+To determine the best parameters for the model `RandomizedSearchCV` is used to train the model 30 times using random parameters
+The model is then trained using the best parameters from `RandomizedSearchCV` using the full training set
+
+### Model Evaluation
+To evaluate the performance of the model, the model is used to predict the `y_test`
+`f1_score = sklearn.metrics.f1_score(y_test, y_pred)`
+ `tn, fp, fn, tp = sklearn.metrics.confusion_matrix(y_test, y_pred).ravel()`
+ `sensitivity = tp / (tp + fn)`
+ `specificity = tn / (tn + fp)`
+![picture alt](Confusion_matrix.png "Confusion_matrix")
 
 # Notes
 Only Python 3 Supported
