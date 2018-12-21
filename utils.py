@@ -1,9 +1,12 @@
 import itertools
 import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 import sklearn.metrics
 from lifelines import KaplanMeierFitter
+
+sns.set_style(style="darkgrid")
 
 def kaplan_curve(df, duration, censorship, cohort=None):
     """ Estimate the survival function

@@ -18,12 +18,12 @@ This section develop a model to predict if fundraising will be required.
 ### Feature Engineering
 #### Feature Scaling
 Based on the distribution of the variables the following scaling method were used:
-` `StandardScaler` the scaler was used to scale;`Age`
+* `StandardScaler` the scaler was used to scale;`Age`
 * `MinMaxScaler`, this scaler was used to scale; `No_of_Children`, `Significant_Children`, and `Significant_Relatives`
 * `RobustScaler`, this caler was used used to scale; `Size`, and `Word_Count`
 #### Encoding Categorical Data
 The following varibles were converted to number:
-* 'Fundraising`
+* `Fundraising`
 * `Color`
 * `Gender'
 
@@ -36,10 +36,14 @@ The model is then trained using the best parameters from `RandomizedSearchCV` us
 
 ### Model Evaluation
 To evaluate the performance of the model, the model is used to predict the `y_test`
-`f1_score = sklearn.metrics.f1_score(y_test, y_pred)`
- `tn, fp, fn, tp = sklearn.metrics.confusion_matrix(y_test, y_pred).ravel()`
- `sensitivity = tp / (tp + fn)`
- `specificity = tn / (tn + fp)`
+* `f1_score = sklearn.metrics.f1_score(y_test, y_pred)`
+    the value os the f1_score is 0.634
+* `tn, fp, fn, tp = sklearn.metrics.confusion_matrix(y_test, y_pred).ravel()`
+* `sensitivity = tp / (tp + fn)`
+    the value os the sensitivity is 0.657
+* `specificity = tn / (tn + fp)`
+    the value os the specificity is 0.3095
+From the figure below only 31 percent Funel that do not require fundraising are classified correctly and 61 percent of the recors that require fundraising are classified correctly
 ![picture alt](Confusion_matrix.png "Confusion_matrix")
 
 # Notes
